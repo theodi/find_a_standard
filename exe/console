@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'bundler'
+Bundler.setup
+
+ENV['RACK_ENV'] ||= 'development'
+
+require File.expand_path File.join(File.dirname(__FILE__), '/../lib/find_a_standard.rb')
+
+require "irb"
+IRB.start
