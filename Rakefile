@@ -13,4 +13,10 @@ task :populate do
    end
 end
 
+namespace :assets do
+  task :precompile do
+    `bundle exec compass compile`
+  end
+end
+
 task :default => [:spec, 'coveralls:push']
