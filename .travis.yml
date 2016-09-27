@@ -1,3 +1,9 @@
 language: ruby
 rvm:
   - 2.3.1
+services:
+  - elasticsearch
+before_script:
+  - sleep 10
+env:
+  ES_URL=http://localhost:9200
