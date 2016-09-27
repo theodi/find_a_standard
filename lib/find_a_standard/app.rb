@@ -15,6 +15,13 @@ module FindAStandard
     get '/' do
       erb :index, layout: 'layouts/default'.to_sym
     end
+
+    get '/search' do
+      @query = params[:q]
+      @results = FindAStandard::Client.search(@query)
+      erb :results, layout: 'layouts/default'.to_sym
+    end
+
     post '/index' do
       protected!
 

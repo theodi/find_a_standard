@@ -1,0 +1,9 @@
+<h1>Search Results</h1>
+
+<p>You searched for '<%= @query %>'</p>
+
+<% @results['hits']['hits'].each do |r| %>
+
+  <h2><%= r['_source']['title'] %></h2>
+
+<% end %>

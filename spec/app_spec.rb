@@ -27,4 +27,17 @@ describe FindAStandard::App do
     expect(last_response.body).to match /Find a standard/
   end
 
+  it 'carries out a simple search' do
+    FindAStandard::Client.index('http://example.com', 'foo', 'Batman vs Superman')
+    FindAStandard::Client.index('http://example.org', 'bar', 'superman')
+    FindAStandard::Client.index('http://example.com', 'baz', 'na na na na na na na na batman')
+
+    FindAStandard::Client.refresh_index
+
+    get '/search', q: 'batman'
+
+    expect(last_response.body).to match /<h2>foo/
+    expect(last_response.body).to match /<h2>baz/
+  end
+
 end
