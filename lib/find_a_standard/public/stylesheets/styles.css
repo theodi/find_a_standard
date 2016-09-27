@@ -7258,3 +7258,8 @@ a.text-danger:focus, a.text-danger:hover {
 .jumbotron {
   margin: 120px 0;
 }
+
+/* line 16, ../../../../sass/styles.scss */
+#main {
+  padding: 3rem 1.5rem;
+}
