@@ -12,9 +12,12 @@ module FindAStandard
       @auth.provided? and @auth.basic? and @auth.credentials and @auth.credentials == [ENV['FIND_A_STANDARD_USERNAME'], ENV['FIND_A_STANDARD_PASSWORD']]
     end
 
+    get '/' do
+      erb :index, layout: 'layouts/default'.to_sym
+    end
     post '/index' do
       protected!
-      
+
       FindAStandard::Index.new(params[:url])
     end
 
