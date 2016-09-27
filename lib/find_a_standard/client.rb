@@ -3,8 +3,9 @@ module FindAStandard
 
     INDEX_NAME = 'find_a_standard'
 
-    def self.index(title, body)
+    def self.index(url, title, body)
       body = {
+        url: url,
         title: title,
         body: body
       }
