@@ -1,10 +1,15 @@
 source 'https://rubygems.org'
 
 gem 'elasticsearch'
-gem 'rspec'
 gem 'dotenv'
 gem 'oga'
-gem 'coveralls'
-gem 'webmock'
-gem 'pry'
 gem 'rake'
+gem 'sinatra'
+
+group :test do
+  gem 'rspec'
+  gem 'coveralls'
+  gem 'webmock'
+  gem 'pry'
+  gem 'rack-test'
+end

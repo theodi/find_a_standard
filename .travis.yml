@@ -7,3 +7,5 @@ before_script:
   - sleep 10
 env:
   ES_URL=http://localhost:9200
+  FIND_A_STANDARD_USERNAME=username
+  FIND_A_STANDARD_PASSWORD=password
