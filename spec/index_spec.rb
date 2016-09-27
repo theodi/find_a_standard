@@ -17,4 +17,9 @@ describe FindAStandard::Index do
     expect(@index.send(:page_title)).to eq('Example Domain')
   end
 
+  it 'indexes the text and title in Elasticsearch' do
+    FindAStandard::Client.refresh_index
+    expect(FindAStandard::Client.search('domain')['hits']['hits'].count).to eq(1)
+  end
+
 end

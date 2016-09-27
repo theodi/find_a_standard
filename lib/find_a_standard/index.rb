@@ -3,6 +3,7 @@ module FindAStandard
 
     def initialize(url)
       @url = url
+      FindAStandard::Client.index(page_title, page_text)
     end
 
     private
