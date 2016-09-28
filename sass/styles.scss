@@ -12,3 +12,35 @@
 #main {
   padding: 3rem 1.5rem;
 }
+
+.bg-inverse {
+  background-color: $brand-primary !important;
+}
+
+footer {
+  color: #fff;
+  background-color: $brand-primary !important;
+  padding: 20px 0;
+
+  a {
+    color: #fff;
+    border-bottom: dotted 1px #fff;
+    text-decoration: none;
+
+    &:hover {
+      color: #fff;
+      border-bottom: solid 1px #fff;
+      text-decoration: none;
+    }
+  }
+
+  #odine-logo {
+    width: 250px;
+    margin-bottom: 10px;
+  }
+
+  #odi-labs {
+    width: 175px;
+    margin: -10px 0 0 -10px;
+  }
+}
