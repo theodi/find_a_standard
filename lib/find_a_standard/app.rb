@@ -1,6 +1,17 @@
 module FindAStandard
   class App < Sinatra::Base
 
+    use Rack::Conneg do |conneg|
+      conneg.set :accept_all_extensions, false
+      conneg.set :fallback, :html
+      conneg.ignore_contents_of 'lib/find_a_standard/public'
+      conneg.provide [
+        :json,
+        :html,
+        :csv
+      ]
+    end
+
     def protected!
       return if authorized?
       headers['WWW-Authenticate'] = 'Basic realm="Restricted Area"'
