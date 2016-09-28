@@ -29,4 +29,12 @@ describe FindAStandard::Index do
     })
   end
 
+  it 'copes with invalid characters' do
+    stub_request(:get, "www.example.com").
+      to_return(body: File.read(File.join 'spec', 'fixtures', 'invalid.html'))
+
+    index = described_class.new('http://www.example.com', 'description', 'comma,seperated,keywords')
+
+  end
+
 end

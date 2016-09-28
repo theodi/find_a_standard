@@ -8,7 +8,7 @@ module FindAStandard
         url: url,
         title: title,
         description: description,
-        body: body,
+        body: encode(body),
         keywords: keywords
       }
       connection.index(index: INDEX_NAME, type: 'standard', body: body)
@@ -48,6 +48,12 @@ module FindAStandard
     def self.connection
       @@connection ||= Elasticsearch::Client.new url: ENV['ES_URL']
     end
+
+    private
+
+      def self.encode(str)
+        str.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''})
+      end
 
   end
 end
