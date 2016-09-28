@@ -3,11 +3,13 @@ module FindAStandard
 
     INDEX_NAME = ENV['FIND_A_STANDARD_INDEX']
 
-    def self.index(url, title, body)
+    def self.index(url, title, body, description, keywords)
       body = {
         url: url,
         title: title,
-        body: body
+        description: description,
+        body: body,
+        keywords: keywords
       }
       connection.index(index: INDEX_NAME, type: 'standard', body: body)
     end

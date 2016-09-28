@@ -25,7 +25,7 @@ module FindAStandard
     post '/index' do
       protected!
 
-      FindAStandard::Index.new(params[:url])
+      FindAStandard::Index.new(params[:url], params[:description], params[:keywords])
     end
 
   end

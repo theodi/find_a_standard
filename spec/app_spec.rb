@@ -13,7 +13,7 @@ describe FindAStandard::App do
       to_return(body: File.read(File.join 'spec', 'fixtures', 'index.html'))
 
     authorize ENV['FIND_A_STANDARD_USERNAME'], ENV['FIND_A_STANDARD_PASSWORD']
-    post '/index', url: 'http://example.org'
+    post '/index', url: 'http://example.org', description: 'foo bar', keywords: 'ffdsfds,dfsfdssd'
 
     expect(last_response.status).to eq(200)
 
@@ -28,9 +28,9 @@ describe FindAStandard::App do
   end
 
   it 'carries out a simple search' do
-    FindAStandard::Client.index('http://example.com/murderverse', 'foo', 'Batman vs Superman')
-    FindAStandard::Client.index('http://example.org', 'bar', 'superman')
-    FindAStandard::Client.index('http://example.com/adam-west', 'baz', 'na na na na na na na na batman')
+    FindAStandard::Client.index('http://example.com/murderverse', 'foo', 'Batman vs Superman', 'description', ['key'])
+    FindAStandard::Client.index('http://example.org', 'bar', 'superman', 'description', ['key'])
+    FindAStandard::Client.index('http://example.com/adam-west', 'baz', 'na na na na na na na na batman', 'description', ['key'])
 
     FindAStandard::Client.refresh_index
 

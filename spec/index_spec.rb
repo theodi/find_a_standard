@@ -6,7 +6,7 @@ describe FindAStandard::Index do
     stub_request(:get, "www.example.com").
       to_return(body: File.read(File.join 'spec', 'fixtures', 'index.html'))
 
-    @index = described_class.new('http://www.example.com')
+    @index = described_class.new('http://www.example.com', 'description', 'comma,seperated,keywords')
   end
 
   it 'extracts the text from a webpage' do
@@ -20,6 +20,13 @@ describe FindAStandard::Index do
   it 'indexes the text and title in Elasticsearch' do
     FindAStandard::Client.refresh_index
     expect(FindAStandard::Client.search('domain')['hits']['hits'].count).to eq(1)
+    expect(FindAStandard::Client.search('domain')['hits']['hits'].first['_source']).to eq({
+      'url' => 'http://www.example.com',
+      'title' => 'Example Domain',
+      'description' => 'description',
+      'body' => 'Example Domain This domain is established to be used for illustrative examples in documents. You may use this domain in examples without prior coordination or asking for permission. More information...',
+      'keywords' => ['comma','seperated','keywords']
+    })
   end
 
 end

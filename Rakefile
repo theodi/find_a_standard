@@ -11,7 +11,7 @@ require File.join(File.dirname(__FILE__), 'lib/find_a_standard.rb')
 
 task :populate do
    CSV.foreach(ENV['FILE'], headers: true) do |row|
-     FindAStandard::Index.new(row[1])
+     FindAStandard::Index.new(row[1], row[2], row[3])
    end
 end
 

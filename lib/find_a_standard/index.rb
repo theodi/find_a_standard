@@ -1,9 +1,10 @@
 module FindAStandard
   class Index
 
-    def initialize(url)
+    def initialize(url, description, keywords)
       @url = url
-      FindAStandard::Client.index(url, page_title, page_text)
+      keywords = keywords.to_s.split(',')
+      FindAStandard::Client.index(url, page_title, page_text, description, keywords)
     end
 
     private
