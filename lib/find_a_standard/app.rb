@@ -16,6 +16,10 @@ module FindAStandard
       erb :index, layout: 'layouts/default'.to_sym
     end
 
+    get '/submit' do
+      erb :submit, layout: 'layouts/default'.to_sym
+    end
+
     get '/search' do
       @query = params[:q]
       hits = FindAStandard::Client.search(@query)['hits']['hits']
