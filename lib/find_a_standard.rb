@@ -10,6 +10,7 @@ require 'sinatra'
 
 require 'find_a_standard/client'
 require 'find_a_standard/index'
+require 'find_a_standard/results_presenter'
 require 'find_a_standard/app'
 
 module FindAStandard

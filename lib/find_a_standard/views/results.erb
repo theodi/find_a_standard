@@ -2,14 +2,14 @@
 
 <p>You searched for '<%= @query %>'</p>
 
-<% @results['hits']['hits'].each do |r| %>
+<% @results.each do |r| %>
 
-  <h2><a href="<%= r['_source']['url'] %>"><%= r['_source']['title'] %></a></h2>
-  <p class="lead"><%= r['_source']['description'] %></p>
+  <h2><a href="<%= r.url %>"><%= r.title %></a></h2>
+  <p class="lead"><%= r.description %></p>
 
-  <p>...<%= ['highlight']['body'].first %>...</p>
+  <p><%= r.body %></p>
 
-  <% r['_source']['keywords'].each do |t| %>
+  <% r.keywords.each do |t| %>
     <span class='tag tag-primary'><%= t %></span>
   <% end %>
 

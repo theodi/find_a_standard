@@ -18,7 +18,8 @@ module FindAStandard
 
     get '/search' do
       @query = params[:q]
-      @results = FindAStandard::Client.search(@query)
+      hits = FindAStandard::Client.search(@query)['hits']['hits']
+      @results = hits.map { |h| FindAStandard::ResultsPresenter.new(h) }
       erb :results, layout: 'layouts/default'.to_sym
     end
 
