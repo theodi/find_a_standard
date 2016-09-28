@@ -1,7 +1,7 @@
 module FindAStandard
   class Client
 
-    INDEX_NAME = 'find_a_standard'
+    INDEX_NAME = ENV['FIND_A_STANDARD_INDEX']
 
     def self.index(url, title, body)
       body = {

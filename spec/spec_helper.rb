@@ -3,6 +3,8 @@ Coveralls.wear_merged!
 
 $LOAD_PATH.unshift File.expand_path('../lib', __FILE__)
 
+ENV['FIND_A_STANDARD_INDEX'] = 'find_a_standard_test'
+
 require 'find_a_standard'
 require 'webmock/rspec'
 require 'rack/test'

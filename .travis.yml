@@ -9,3 +9,4 @@ env:
   ES_URL=http://localhost:9200
   FIND_A_STANDARD_USERNAME=username
   FIND_A_STANDARD_PASSWORD=password
+  FIND_A_STANDARD_INDEX=find_a_standard_test

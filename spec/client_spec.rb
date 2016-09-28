@@ -9,7 +9,7 @@ describe FindAStandard::Client do
       dbl
     }
 
-    expect(dbl).to receive(:index).with(index: 'find_a_standard', type: 'standard', body: {
+    expect(dbl).to receive(:index).with(index: 'find_a_standard_test', type: 'standard', body: {
       url: 'http://example.com',
       title: 'foo',
       body: 'some really long bit of text'
