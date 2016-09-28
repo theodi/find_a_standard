@@ -16,3 +16,19 @@
 .bg-inverse {
   background-color: $brand-primary !important;
 }
+
+footer {
+  color: #fff;
+  background-color: $brand-primary !important;
+  padding: 20px 0;
+
+  #odine-logo {
+    width: 250px;
+    margin-bottom: 10px;
+  }
+
+  #odi-labs {
+    width: 175px;
+    margin: -10px 0 0 -10px;
+  }
+}
