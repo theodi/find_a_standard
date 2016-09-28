@@ -5,8 +5,13 @@
 <% @results['hits']['hits'].each do |r| %>
 
   <h2><a href="<%= r['_source']['url'] %>"><%= r['_source']['title'] %></a></h2>
+  <p class="lead"><%= r['_source']['description'] %></p>
 
-  <p>...<%= r['highlight']['body'].first %>...</p>
+  <p>...<%= ['highlight']['body'].first %>...</p>
+
+  <% r['_source']['keywords'].each do |t| %>
+    <span class='tag tag-primary'><%= t %></span>
+  <% end %>
 
   <hr />
 
