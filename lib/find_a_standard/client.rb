@@ -18,6 +18,14 @@ module FindAStandard
           match: {
             '_all' => query
           }
+        },
+        highlight: {
+          fields: {
+            body: {
+              fragment_size: 400,
+              number_of_fragments: 1
+            }
+          }
         }
       }
       connection.search(index: INDEX_NAME, body: body)

@@ -52,6 +52,8 @@ describe FindAStandard::Client do
       'title' => 'foo',
       'body' => 'na na na na na na na na batman'
     })
+
+    expect(results['hits']['hits'].first['highlight']['body']).to eq(['na na na na na na na na <em>batman</em>'])
   end
 
 end
