@@ -4,6 +4,10 @@
 
 <% @results['hits']['hits'].each do |r| %>
 
-  <h2><%= r['_source']['title'] %></h2>
+  <h2><a href="<%= r['_source']['url'] %>"><%= r['_source']['title'] %></a></h2>
+
+  <p></p>
+
+  <hr />
 
 <% end %>
