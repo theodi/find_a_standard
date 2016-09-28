@@ -1,3 +1,4 @@
 /.env
 /coverage/
 /.sass-cache
+/lib/find_a_standard/public/stylesheets/styles.css
