@@ -33,6 +33,11 @@ module FindAStandard
       connection.search(index: INDEX_NAME, body: body)
     end
 
+    def self.all
+      count = connection.search(index: INDEX_NAME)['hits']['total']
+      connection.search(index: INDEX_NAME, size: count)
+    end
+
     def self.create_index
       connection.indices.create(index: INDEX_NAME)
     end

@@ -79,4 +79,15 @@ describe FindAStandard::Client do
     })
   end
 
+  it 'gets all results' do
+    22.times do |i|
+      FindAStandard::Client.index('http://example.com', 'foo', "na na na na na na na na batman #{i}" , 'description', ['key'])
+    end
+    FindAStandard::Client.refresh_index
+
+    results = FindAStandard::Client.all
+
+    expect(results['hits']['hits'].count).to eq(22)
+  end
+
 end
