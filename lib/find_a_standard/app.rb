@@ -40,6 +40,15 @@ module FindAStandard
       end.sort { |a,b| a[:title] <=> b[:title] }
     end
 
+    def generate_csv(results)
+      csv = map_results(results).map do |r|
+        r[:keywords] = r[:keywords].join(',')
+        r.values
+      end
+      csv.unshift(['title', 'url', 'description', 'keywords'])
+      csv.map { |r| r.to_csv(row_sep: "\r\n") }.join
+    end
+
     get '/' do
       erb :index, layout: 'layouts/default'.to_sym
     end
@@ -51,8 +60,18 @@ module FindAStandard
     get '/search' do
       @query = params[:q]
       hits = FindAStandard::Client.search(@query)['hits']['hits']
-      @results = hits.map { |h| FindAStandard::ResultsPresenter.new(h) }
-      erb :results, layout: 'layouts/default'.to_sym
+      respond_to do |wants|
+        wants.html do
+          @results = hits.map { |h| FindAStandard::ResultsPresenter.new(h) }
+          erb :results, layout: 'layouts/default'.to_sym
+        end
+        wants.json do
+          map_results(hits).to_json
+        end
+        wants.csv do
+          generate_csv(hits)
+        end
+      end
     end
 
     get '/data' do
@@ -65,12 +84,7 @@ module FindAStandard
           map_results(@results).to_json
         end
         wants.csv do
-          csv = map_results(@results).map do |r|
-            r[:keywords] = r[:keywords].join(',')
-            r.values
-          end
-          csv.unshift(['title', 'url', 'description', 'keywords'])
-          csv.map { |r| r.to_csv(row_sep: "\r\n") }.join
+          generate_csv(@results)
         end
       end
     end
