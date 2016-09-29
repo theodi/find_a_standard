@@ -50,14 +50,17 @@ module FindAStandard
     end
 
     get '/' do
+      @title = 'Find a standard'
       erb :index, layout: 'layouts/default'.to_sym
     end
 
     get '/submit' do
+      @title = 'Submit a standard'
       erb :submit, layout: 'layouts/default'.to_sym
     end
 
     get '/search' do
+      @title = 'Search Results'
       @query = params[:q]
       hits = FindAStandard::Client.search(@query)['hits']['hits']
       respond_to do |wants|
@@ -75,6 +78,7 @@ module FindAStandard
     end
 
     get '/data' do
+      @title = 'Find a standard - Data'
       @results = FindAStandard::Client.all['hits']['hits']
       respond_to do |wants|
         wants.html do
