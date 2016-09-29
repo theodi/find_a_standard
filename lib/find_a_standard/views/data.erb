@@ -1,1 +1,60 @@
-<h1>Data</h1>
+<div prefix="dct: http://purl.org/dc/terms/
+              rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+              dcat: http://www.w3.org/ns/dcat#
+              foaf: http://xmlns.com/foaf/0.1/">
+
+  <div typeof="dcat:Dataset" resource="http://standards.labs.theodi.org/data">
+
+    <h1 property="dct:title">Find a standard - Data</h1>
+
+    <p property="dct:description">We've made all the data behind this site available in CSV or JSON format.</p>
+
+    <p>
+      The data is available under the <a property="dct:license" resource="https://creativecommons.org/licenses/by/4.0/"
+      href="https://creativecommons.org/licenses/by/4.0/"><span property="dct:title">Creative Commons - Attribution 4.0
+      (CC BY 4.0)</span></a> license
+    </p>
+
+    <h2>Get the data</h2>
+
+    <p>
+
+      <span property='dcat:distribution' typeof='dcat:Distribution'>
+        <a href="/data.json" property='dcat:accessURL' class="btn btn-primary">
+          <span property="dct:title">
+            <span content='application/json' property='dcat:mediaType'>JSON</span> format
+          </span>
+        </a>
+      </span>
+
+      <span property='dcat:distribution' typeof='dcat:Distribution'>
+        <a href="/data.csv" property='dcat:accessURL' class="btn btn-primary">
+          <span property="dct:title">
+            <span content='text/csv' property='dcat:mediaType'>CSV</span> format
+          </span>
+        </a>
+      </span>
+
+    </p>
+
+    <h2>About the data</h2>
+
+    <table class="table">
+	     <tbody>
+         <tr>
+	         <th scope="row">Created on:</th>
+	         <td property="dct:created" content='2016-09-29T09:00:00+00:00' datatype='xsd:dateTime'>2016-09-29</td>
+	      </tr>
+        <tr>
+          <th scope="row">Published by:</th>
+          <td>
+            <a href="http://theodi.org/" about="http://theodi.org/" property="foaf:homepage">
+              <span property="foaf:name">Open Data Institute</span>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
