@@ -1,22 +1,6 @@
 module FindAStandard
   class App < Sinatra::Base
-
-    use Rack::Conneg do |conneg|
-      conneg.set :accept_all_extensions, false
-      conneg.set :fallback, :html
-      conneg.ignore_contents_of 'lib/find_a_standard/public'
-      conneg.provide [
-        :json,
-        :html,
-        :csv
-      ]
-    end
-
-    before do
-      if negotiated?
-        content_type negotiated_type
-      end
-    end
+    register Sinatra::RespondTo
 
     def protected!
       return if authorized?
