@@ -1,6 +1,8 @@
 <h1><%= @title %></h1>
 
-<p>You searched for '<%= @query %>'</p>
+<% if @query %>
+  <p>You searched for '<%= @query %>'</p>
+<% end %>
 
 <% @results.each do |r| %>
 

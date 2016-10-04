@@ -93,6 +93,23 @@ module FindAStandard
       end
     end
 
+    get '/tag/:tag_id' do
+      @title = "Results with tag `#{params[:tag_id]}`"
+      hits = FindAStandard::Client.search(params[:tag_id], 'keywords')['hits']['hits']
+      respond_to do |wants|
+        wants.html do
+          @results = hits.map { |h| FindAStandard::ResultsPresenter.new(h) }
+          erb :results, layout: 'layouts/default'.to_sym
+        end
+        wants.json do
+          map_results(hits).to_json
+        end
+        wants.csv do
+          generate_csv(hits)
+        end
+      end
+    end
+
     post '/index' do
       protected!
 
