@@ -12,7 +12,7 @@
   <p><%= r.body %></p>
 
   <% r.keywords.each do |t| %>
-    <span class='tag tag-primary'><a href="/tag/<%= t %>"><%= t %></a></span>
+    <span class='tag tag-primary'><a href="/tag/<%= t.downcase.gsub(' ', '-') %>"><%= t %></a></span>
   <% end %>
 
   <hr />
