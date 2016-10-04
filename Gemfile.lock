@@ -61,8 +61,6 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rack (1.6.4)
-    rack-conneg (0.1.5)
-      rack (>= 1.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -98,6 +96,8 @@ GEM
       rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
+    sinatra-respond_to (0.9.0)
+      sinatra (~> 1.3)
     slop (3.6.0)
     term-ansicolor (1.3.2)
       tins (~> 1.0)
@@ -124,11 +124,11 @@ DEPENDENCIES
   elasticsearch
   oga
   pry
-  rack-conneg
   rack-test
   rake
   rspec
   sinatra
+  sinatra-respond_to
   thin
   webmock
 
