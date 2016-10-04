@@ -106,4 +106,16 @@ describe FindAStandard::App do
 
   end
 
+  it 'gets tags' do
+    FindAStandard::Client.index('http://example.org/superman', 'bar', 'Superman', 'description', ['tag','other key', 'thing'])
+    FindAStandard::Client.index('http://example.com/adam-west', 'baz', 'na na na na na na na na batman', 'description', ['key'])
+
+    FindAStandard::Client.refresh_index
+
+    get '/tag/thing'
+
+    expect(last_response.body).to match /http:\/\/example.org\/superman/
+    expect(last_response.body).to match /bar/
+  end
+
 end

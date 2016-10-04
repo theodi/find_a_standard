@@ -14,11 +14,11 @@ module FindAStandard
       connection.index(index: INDEX_NAME, type: 'standard', body: body)
     end
 
-    def self.search(query)
+    def self.search(query, match = '_all')
       body = {
         query: {
           match: {
-            '_all' => query
+            match => query
           }
         },
         highlight: {

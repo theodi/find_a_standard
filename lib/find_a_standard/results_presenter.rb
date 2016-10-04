@@ -26,7 +26,7 @@ module FindAStandard
     end
 
     def keywords
-      @result['_source']['keywords'] || []
+      (@result['_source']['keywords'] || []).map { |k| k.strip }
     end
 
   end
