@@ -1,0 +1,38 @@
+{
+  "name": "find_a_standard",
+  "scripts": {
+  },
+  "env": {
+    "BONSAI_URL": {
+      "required": true
+    },
+    "ES_URL": {
+      "required": true
+    },
+    "FIND_A_STANDARD_INDEX": {
+      "required": true
+    },
+    "FIND_A_STANDARD_PASSWORD": {
+      "required": true
+    },
+    "FIND_A_STANDARD_USERNAME": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "bonsai"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
