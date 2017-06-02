@@ -34,7 +34,7 @@ GEM
     daemons (1.2.4)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    dotenv (2.1.1)
+    dotenv (2.2.1)
     elasticsearch (2.0.0)
       elasticsearch-api (= 2.0.0)
       elasticsearch-transport (= 2.0.0)
