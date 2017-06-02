@@ -53,7 +53,7 @@ GEM
     method_source (0.8.2)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    oga (2.7)
+    oga (2.10)
       ast
       ruby-ll (~> 2.1)
     pry (0.10.4)
