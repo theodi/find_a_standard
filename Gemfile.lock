@@ -103,7 +103,7 @@ GEM
     slop (3.6.0)
     term-ansicolor (1.6.0)
       tins (~> 1.0)
-    thin (1.7.1)
+    thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
       rack (>= 1, < 3)
