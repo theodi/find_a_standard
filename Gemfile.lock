@@ -55,7 +55,7 @@ GEM
     method_source (0.8.2)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    oga (2.10)
+    oga (2.12)
       ast
       ruby-ll (~> 2.1)
     popper_js (1.11.1)
