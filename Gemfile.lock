@@ -4,7 +4,7 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
-    ast (2.3.0)
+    ast (2.4.0)
     autoprefixer-rails (7.1.2.4)
       execjs
     bootstrap (4.0.0.beta)
@@ -55,7 +55,7 @@ GEM
     method_source (0.8.2)
     multi_json (1.12.1)
     multipart-post (2.0.0)
-    oga (2.10)
+    oga (2.15)
       ast
       ruby-ll (~> 2.1)
     popper_js (1.11.1)
